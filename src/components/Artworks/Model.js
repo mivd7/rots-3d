@@ -26,14 +26,11 @@ const Model = () => {
           mesh.position.set(0, 0, 0);
           mesh.scale.set(0.07, 0.07, 0.07);
         },
-        // called when loading has errors
-        xhr => {
-          console.log("XHR tf", xhr);
+        // called when loading
+        progress => {
+          console.log("Loading...", progress);
         },
-        error => {
-          console.error('error!', error)
-        }
-
+        error => console.error('error!', error)
       );
     });
   };
