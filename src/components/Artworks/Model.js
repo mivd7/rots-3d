@@ -22,7 +22,8 @@ const Model = () => {
           objectModel.add(object)
         },
         progress => {
-          console.log("Loading...", progress);
+          let percentage = (progress.loaded / progress.total) * 100;
+          console.log("Loading..." + Math.round(percentage) + "%");
         },
         error => console.error('error!', error)
       );
