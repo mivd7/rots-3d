@@ -1,33 +1,14 @@
 import React, { Suspense } from 'react'
 // import { useLoader } from 'react-three-fiber'
 import rots1obj from '../../assets/rots1.obj';
-
 import Cube from '../Cubes/Cube';
-import {MTLLoader, OBJLoader} from 'three-obj-mtl-loader'
-import { Object3D } from 'three';
+// import {MTLLoader, OBJLoader} from 'three-obj-mtl-loader'
+// import { Object3D } from 'three';
+import { loadObjModel } from '../../lib/loader';
 
 const Model = () => {
   const Asset = ({materialURL, objectURL}) => {
-    let objectModel = new Object3D();
-    new MTLLoader().load(materialURL, materials => {
-      materials.preload();
-      //materials.Material.side = THREE.DoubleSide;
-      console.log("Loaded Materials", materials);
-      var objLoader = new OBJLoader();
-      objLoader.setMaterials(materials);
-      objLoader.load(
-        objectURL,
-        object => {
-          console.log("Loaded Obj", object);
-          objectModel.add(object)
-        },
-        progress => {
-          let percentage = (progress.loaded / progress.total) * 100;
-          console.log("Loading..." + Math.round(percentage) + "%");
-        },
-        error => console.error('error!', error)
-      );
-    });
+    let objectModel = loadObjModel(materialURL, objectURL)
     return (<primitive object={objectModel}/>)
   };
 
