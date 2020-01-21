@@ -1,15 +1,14 @@
 import React, { Suspense } from 'react'
-import { useLoader } from 'react-three-fiber'
-import rots1mtl from '../../assets/rots1.mtl';
+// import { useLoader } from 'react-three-fiber'
 import rots1obj from '../../assets/rots1.obj';
 
 import Cube from '../Cubes/Cube';
 import {MTLLoader, OBJLoader} from 'three-obj-mtl-loader'
+import { Object3D } from 'three';
 
 const Model = () => {
-  const loadObjModel = (materialURL, objectURL) => {
-    console.log(materialURL)
-    console.log(objectURL)
+  const Asset = ({materialURL, objectURL}) => {
+    let objectModel = new Object3D();
     new MTLLoader().load(materialURL, materials => {
       materials.preload();
       //materials.Material.side = THREE.DoubleSide;
@@ -19,26 +18,23 @@ const Model = () => {
       objLoader.load(
         objectURL,
         object => {
-          //const root = object.detail.loaderRootNode;
           console.log("Loaded Obj", object);
-          let mesh = object;
-          // this.scene.add(object);
-          mesh.position.set(0, 0, 0);
-          mesh.scale.set(0.07, 0.07, 0.07);
+          objectModel.add(object)
         },
-        // called when loading
         progress => {
           console.log("Loading...", progress);
         },
         error => console.error('error!', error)
       );
     });
+    return (<primitive object={objectModel}/>)
   };
 
-  loadObjModel('./static/media/rots1.mtl', rots1obj)
-
+  // let rots1 = loadObjModel('./static/media/rots1.mtl', rots1obj)
+  // console.log('rots1: ', rots1)
   return(
     <Suspense fallback={<Cube />}>
+      <Asset materialURL={'./static/media/rots1.mtl'} objectURL={rots1obj} />
     </Suspense>
   )
 }
