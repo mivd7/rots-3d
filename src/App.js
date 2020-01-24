@@ -4,16 +4,15 @@ import {Canvas} from 'react-three-fiber';
 import Cubes from "./components/Cubes";
 import Lights from "./components/Lights";
 import Environment from "./components/Environment";
-import Model from './components/Artworks/Model'
-// import Controls from './components/Controls'
-// import rots1mtl from '../../assets/rots1.mtl';
-//materialURL={'./static/media/rots1.mtl'} objectURL={rots1obj}
+import Model from './components/Models'
+import Controls from './components/Controls'
+
 function App() {
   return (
     <div className="App">
       <Canvas>
         <Model />
-        <Cubes/>
+        <Controls/>
         <Lights/>
         <Environment/>
       </Canvas>

@@ -4,12 +4,11 @@ import { BackSide } from "three";
 export default () => {
   return (
     <mesh>
-      <sphereBufferGeometry args={[5, 10, 10]} attach="geometry" />
+      <sphereBufferGeometry args={[50, 100, 100]} attach="geometry" />
       <meshStandardMaterial
-        color={0xeeee}
+        color={0x0000}
         attach="material"
         side={BackSide}
-        metalness={0.4}
       />
     </mesh>
   );
