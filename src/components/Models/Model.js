@@ -1,5 +1,6 @@
 import React, { Suspense, useRef } from 'react'
 import rots1obj from '../../assets/rots1.obj';
+import rots1mtl from '../../assets/rots1.obj';
 import Cube from '../Cubes/Cube';
 import { loadObjModel } from '../../lib/loader';
 import { useFrame } from 'react-three-fiber';
@@ -19,7 +20,7 @@ const Model = () => {
 
   return(
     <Suspense fallback={<Cube />}>
-        <Asset materialURL={'./static/media/rots1.mtl'} objectURL={rots1obj} />
+        <Asset materialURL={rots1mtl} objectURL={rots1obj} />
     </Suspense>
   )
 }
