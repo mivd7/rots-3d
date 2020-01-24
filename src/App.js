@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
 import {Canvas} from 'react-three-fiber';
-import Cubes from "./components/Cubes";
 import Lights from "./components/Lights";
 import Environment from "./components/Environment";
-import Model from './components/Models'
+import Model from './components/Models/Model'
 import Controls from './components/Controls'
 
 function App() {
