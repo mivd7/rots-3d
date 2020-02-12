@@ -10,7 +10,6 @@ export const loadObjModel = (materialURL, objectURL) => {
   let model = new Object3D();
   new MTLLoader().load(materialURL, materials => {
     materials.preload();
-    //materials.Material.side = THREE.DoubleSide;
     var objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
     objLoader.load(

@@ -1,5 +1,5 @@
 import React from "react";
-import { BackSide } from "three";
+import { DoubleSide } from "three";
 
 export default () => {
   return (
@@ -8,7 +8,7 @@ export default () => {
       <meshStandardMaterial
         color={0xffff}
         attach="material"
-        side={BackSide}
+        side={DoubleSide}
       />
     </mesh>
   );
