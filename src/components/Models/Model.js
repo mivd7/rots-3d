@@ -1,8 +1,8 @@
 import React, { Suspense, useRef } from 'react'
+import Loading from './Loading';
 import rots1obj from '../../assets/rots1.obj';
 import { loadObjModel } from '../../lib/loader';
 import { useFrame } from 'react-three-fiber';
-import Loading from './Loading'
 
 const Model = () => {
   const Asset = ({materialURL, objectURL}) => {
@@ -16,6 +16,12 @@ const Model = () => {
       </mesh>
     )
   };
+
+  // function Loading() {
+  //     return(
+  //       <h1 style={{color: 'red', fontSize: '72px'}}>Loading ... </h1>
+  //     )
+  //   }
 
   return(
     <Suspense fallback={<Loading/>}>

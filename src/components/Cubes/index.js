@@ -7,11 +7,7 @@ import Cube from "./Cube";
 export default () => {
   const group = useRef();
 
-  useFrame(() => {
-    group.current.rotation.y += 0.005;
-  });
-
-  const nodesCubes = map(new Array(50), (el, i) => {
+  const nodesCubes = map(new Array(1), (el, i) => {
     return <Cube key={i} />;
   });
 

@@ -1,7 +1,10 @@
 import React from 'react'
+import {Dom} from 'react-three-fiber'
 
 export default function Loading() {
   return(
-    <h1 style={{color: 'white'}}>Loading ... </h1>
+    <Dom position={[100, 0, 100]}>
+      <h1>Loading...</h1>
+    </Dom>
   )
 }
