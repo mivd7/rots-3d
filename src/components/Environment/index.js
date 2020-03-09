@@ -4,9 +4,9 @@ import { DoubleSide } from "three";
 export default () => {
   return (
     <mesh>
-      <sphereBufferGeometry args={[50, 100, 100]} attach="geometry" />
+      <sphereBufferGeometry args={[100, 100, 100]} attach="geometry" />
       <meshStandardMaterial
-        color={0xffff}
+        color={0xeeee}
         attach="material"
         side={DoubleSide}
       />

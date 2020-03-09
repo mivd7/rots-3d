@@ -2,13 +2,15 @@ import React, { Suspense, useRef } from 'react'
 import rots1obj from '../../assets/rots1.obj';
 import { loadObjModel } from '../../lib/loader';
 import { useFrame } from 'react-three-fiber';
-import Loading from './Loading'
+import Loading from './Loading';
 
 const Model = () => {
-  const Asset = ({materialURL, objectURL}) => {
+  const objectModel = loadObjModel(rots1obj, rots1obj)
+  const Asset = ({objectModel}) => {
     const mesh = useRef()
-    const objectModel = loadObjModel(materialURL, objectURL)
+    console.log(mesh)
     useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
+    
     return (
       <mesh ref={mesh}
             scale={[1, 1, 1]}>
@@ -18,9 +20,11 @@ const Model = () => {
   };
 
   return(
-    <Suspense fallback={<Loading/>}>
-        <Asset materialURL={rots1obj} objectURL={rots1obj} />
-    </Suspense>
+        <>
+          <Suspense fallback={<Loading/>}>
+              <Asset objectModel={objectModel} />
+          </Suspense>
+        </>
   )
 }
 

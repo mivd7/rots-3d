@@ -25,6 +25,8 @@ export const loadObjModel = (materialURL, objectURL) => {
       error => console.error('error!', error)
     );
   });
+  console.log(model)
+  
   model.scale.set(0.08, 0.08, 0.08);
   return model;
 };
